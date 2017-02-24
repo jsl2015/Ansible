@@ -1,0 +1,16 @@
+ - name: copy tar_bundle to target
+   copy: src=files/nginx-1.10.3.tar.gz  dest=/usr/local/src
+
+ - name: configure nginx
+   script: ./files/install_nginx.sh
+
+ - name: create hosts directory
+   file: path={{nginx_home_path}}/conf/hosts state=directory
+
+ - name: copy config file
+   template: src=./files/nginx.conf.j2 dest={{nginx_home_path}}/conf/nginx.conf
+ - name: copy v-host file
+   template: src=./files/server.conf.j2  dest={{nginx_home_path}}/conf/hosts/server.conf
+
+ - name: start nginx     
+   shell: /usr/sbin/nginx

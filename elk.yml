@@ -1,0 +1,6 @@
+---
+ - name: install elk
+   hosts: webservers
+   gather_facts: false
+   roles:
+     - elk

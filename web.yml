@@ -1,0 +1,4 @@
+- name: install nginx
+  hosts: web1
+  roles:
+    - nginx

@@ -1,0 +1,6 @@
+ - name: copy bundle
+   copy: src=files/logstash-5.1.1.tar.gz  dest=/usr/local/src
+
+ - name: unpack package
+   script: files/install_elk.sh
+
